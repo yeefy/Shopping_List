@@ -3,8 +3,26 @@
 var itemsList = [ ];
 
 $(document).ready(function(e) {
+	
 	$('#input').focus();
 	
+	function addItem(input){
+		itemsList.push(input);
+		var lastItem = ((itemsList.length)-1);
+		itemsList[lastItem];
+		//var newItemOnList = "<li>" + itemList[lastItem]+ "</li>";
+		$('#items').append('<li>' + itemsList[lastItem]+ '</li>');
+	}
+	
+	function submit(){
+		var input = $.trim(document.getElementById('input').value);
+		addItem(input);
+		$('#input').val("");
+	}
+
+
+	
+
 	$("#input").keypress(function(e) {
         if(e.keyCode==13){
 			submit()
@@ -12,22 +30,6 @@ $(document).ready(function(e) {
     });
 	
 	$('#submit').click(submit);
-
-function submit(){
-	var input = (document.getElementById('input').value);
-	addItem(input);
-	$('#input').val("");
-}
-
-
-function addItem(input){
-	itemList.push(input);
-	var lastItem = ((itemList.length)-1);
-	itemList[lastItem];
-	var newItemOnList = "<li>" + itemList[lastItem]+ "</li>";
-	$('#items').append('newItemOnList');
-}
-
 	
 	//add an item to the list
 	//$('#submit').click(function(e) {
