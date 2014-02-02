@@ -34,8 +34,8 @@ $(document).ready(function(e) {
 			$('#remove_button').click(function(e) {
                 $('#items input:checked').each(function() {
                     var itemsChecked = $('#items input:checked').index(this);
-					itemsList.splice(itemsChecked);
-					$('#items li:eq('+itemsChecked+')').remove();
+					itemsList.splice(itemsChecked, 1);
+					$('#items li:eq('+itemsChecked+')').remove(this);
 				});
                 });
 		};
