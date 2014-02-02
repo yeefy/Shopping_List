@@ -6,12 +6,21 @@ $(document).ready(function(e) {
 	
 	$('#input').focus();
 	
+	$("#input").keypress(function(e) {
+        if(e.keyCode==13){
+			submit()
+		};
+    });
+	
+	$('#submit').click(submit);
+	
+//adding items to list
+	
 	function addItem(input){
 		itemsList.push(input);
 		var lastItem = ((itemsList.length)-1);
 		itemsList[lastItem];
-		//var newItemOnList = "<li>" + itemList[lastItem]+ "</li>";
-		$('#items').append('<li>' + itemsList[lastItem]+ '</li>');
+		$('#items').append('<li>' + "<input id='checkbox' type='checkbox'>" + itemsList[lastItem]+ '</li>');
 	}
 	
 	function submit(){
@@ -20,16 +29,17 @@ $(document).ready(function(e) {
 		$('#input').val("");
 	}
 
-
-	
-
-	$("#input").keypress(function(e) {
-        if(e.keyCode==13){
-			submit()
+//remove item from list
+		function removeItem(){
+			$('#remove_button').click(function(e) {
+                $('#items input:checked').each(function() {
+                    var itemsChecked = $('#items input:checked').index(this);
+					itemsList.splice(itemsChecked);
+					$('#items li:eq('+itemsChecked+')').remove();
+				});
+                });
 		};
-    });
 	
-	$('#submit').click(submit);
 	
 	//add an item to the list
 	//$('#submit').click(function(e) {
