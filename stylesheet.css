@@ -95,11 +95,9 @@ h1{
 	display:inline-block;
 	position:relative;
 	text-align:center;
-	margin-top:5%;
-	margin-right:10px;
-	margin-left:10px;
+	margin-left:20px;
 	height:350px;
-	width:45%;
+	width:50%;
 	border-left:2px solid #333;
 	
 }
@@ -139,9 +137,8 @@ li{
 
 
 .instructions{
-	margin-right:25%;
+	margin-top:5%;;
 	position: relative;
 	display:block;
-	clear: both;
-	text-align:right;
+	text-align:center;
 }

@@ -13,6 +13,7 @@ $(document).ready(function(e) {
     });
 	
 	$('#submit').click(submit);
+
 	
 //adding items to list
 	
@@ -24,46 +25,40 @@ $(document).ready(function(e) {
 	}
 	
 	function submit(){
-		var input = $.trim(document.getElementById('input').value);
+		var input = document.getElementById('input').value;
 		addItem(input);
 		$('#input').val("");
 	}
 
 //remove item from list
-		function removeItem(){
-			$('#remove_button').click(function(e) {
-                $('#items input:checked').each(function() {
-                    var itemsChecked = $('#items input:checked').index(this);
-					itemsList.splice(itemsChecked, 1);
-					$('#items li:eq('+itemsChecked+')').remove(this);
-				});
-                });
+	
+	$(document).on('click', '#remove_button', function(){
+		$('#items input:checked').parent().remove();
+	});
+
+//verify that something is entered	
+	function verify(){
+		if(input==""){
+			alert("Enter something");
+			return(false);
+		}else{
+			addItem(input);
 		};
-	
-	
-	//add an item to the list
-	//$('#submit').click(function(e) {
 			
-				//var itemList = new Array[input];
-			
-				//for (i=0; i<itemList.length; i++) {
-			
-				//if (input != "") {
-				//itemList.push(input);
-				//console.log(input);
-				//$('#items').append(input);
-					
-					//var input = $('#input').val();
-					//$('#items').append('<li>'+input+'<input type=button class="remove_item" value = "X"/></li>');
-					//$("#input").val("");
-					//$("#input").focus();
-			//});
-			
-			
-	//remove an item from the list
-	//$('#items').on('click', '.remove_item', function(){
-		//$(this).parent().remove();
-	//});
+	}	
+
+//verify that input is not repeated
+	function nonRepeat(){
+		var index = itemsList.indexOf(input);
+		var indexValue = itemsList[index];
+		for (i=0; i<itemsList.length;i++){
+			if(input==indexValue[i]){
+				alert("You already have that on the list!")
+			}else{
+				addItem(input);
+			};
+		};
+	};
 });
 	
 
