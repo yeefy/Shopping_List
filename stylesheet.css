@@ -82,13 +82,12 @@ h1{
 #input{
 	height:20px;
 	width:180px;
+	display:inline-block;
 }
 
-#submit{
-	height: 25px;
-	width: 40px;
-	padding:10px;	
+#submit{	
 	margin:8px;
+	display:inline-block;
 }
 
 .list{
@@ -120,14 +119,14 @@ li{
 }
 
 #remove_button{
-	vertical-align:middle;
 	border-radius:30px;
 	height:30px;
 	width:30px;
 	text-align:center;
-	background: -webkit-radial-gradient(#F00, #903);
-	background: -moz-radial-gradient(#F00, #903);
-	border:1px solid #903;
+	background: -webkit-radial-gradient(#C03, #C00);
+	background: -moz-radial-gradient(#C03, #C00);
+	border: 1px solid #C03;
+	outline: none;
 	font-size:20px;
 	color:#FFF;
 	font-weight:bold;
