@@ -36,7 +36,7 @@ $(document).ready(function(e) {
 		else{
 			itemsList.push(input);
 			var lastItem = ((itemsList.length)-1);
-			$('#items').append('<li>' + "<input id='checkbox' type='checkbox' index='lastItem'>" + itemsList[lastItem]+ '</li>')			
+			$('#items').append('<li>' + "<input id='checkbox' type='checkbox' index='"+lastItem+"'>" + itemsList[lastItem]+ '</li>')			
 		};
 		$('#input').val("");
 	});
@@ -47,15 +47,17 @@ $(document).ready(function(e) {
 	
 	$(document).on('click', '#remove_button', function(){
 		
-		var checked = $('#items input:checked').length
-		var indexRemove = $('#items input:checked').index();
-		for (i=0; i<=checked-1; i++){
-		itemsList.splice((indexRemove+1),1);  
-		$('#items input:checked').parent().remove();
-		}
-		console.log(itemsList);
-	});
-	
+		var checked = $('#items input:checked')
+		
+		for (i=0; i<checked.length; i++){
+				var indexRemove = $('#items input:checked').attr('index');
+				console.log(indexRemove);
+				itemsList.splice(indexRemove,1);
+				$('#items input:checked').parent().remove();
+				console.log(itemsList);
+			
+		};
+		});	
 	
 });
 	

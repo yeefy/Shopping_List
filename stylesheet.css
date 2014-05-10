@@ -119,18 +119,11 @@ li{
 }
 
 #remove_button{
-	border-radius:30px;
-	height:30px;
-	width:30px;
-	text-align:center;
-	background: -webkit-radial-gradient(#C03, #C00);
-	background: -moz-radial-gradient(#C03, #C00);
-	border: 1px solid #C03;
-	outline: none;
-	font-size:20px;
-	color:#FFF;
-	font-weight:bold;
-	margin:10px;
+}
+
+p i{
+	color:rgba(255,0,0,1);
+	margin:8px;
 }
 
 
